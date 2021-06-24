@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_height="wrap_content"
+    android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <ImageView
+        android:clickable="true"
+        android:focusable="true"
+        android:foreground="?attr/selectableItemBackground"
+        android:id="@+id/banner"
+        android:layout_marginBottom="2dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:layout_gravity="end">
+        <ImageButton
+            android:background="@drawable/btn_acriligo_vermelho_circular"
+            android:id="@+id/bt_delete"
+            android:layout_width="42dp"
+            android:layout_height="42dp"
+            android:tint="@color/acriligo_tint_vermelho"
+            app:srcCompat="@drawable/ic_action_delete"/>
+        <ImageView
+            android:background="@drawable/btn_acriligo_laranja_circular"
+            android:id="@+id/bt_move"
+            android:layout_width="42dp"
+            android:layout_height="42dp"
+            app:tint="@color/acriligo_tint_laranja"
+            app:srcCompat="@drawable/ic_action_move"/>
+    </LinearLayout>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

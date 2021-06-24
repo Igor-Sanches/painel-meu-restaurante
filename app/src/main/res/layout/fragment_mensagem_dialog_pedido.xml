@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:aapt="http://schemas.android.com/aapt" android:orientation="vertical" android:id="@+id/lyt_parent" android:background="@android:color/transparent" android:layout_width="match_parent" android:layout_height="match_parent">
+    <com.google.android.material.appbar.AppBarLayout android:background="@color/branco" android:id="@+id/app_bar_layout" android:layout_width="match_parent" android:layout_height="?attr/actionBarSize">
+        <LinearLayout android:orientation="horizontal" android:layout_width="match_parent" android:layout_height="match_parent">
+            <ImageButton android:id="@+id/bt_close" android:background="?attr/selectableItemBackgroundBorderless" android:layout_width="?attr/actionBarSize" android:layout_height="?attr/actionBarSize" android:tint="@color/colorWindowBackground" app:srcCompat="@drawable/ic_action_close"/>
+            <View android:layout_width="30dp" android:layout_height="0dp"/>
+            <TextView  android:textAppearance="@style/Base.TextAppearance.AppCompat.Title" android:textColor="@color/colorWindowBackground" android:gravity="center_vertical" android:id="@+id/name_toolbar" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1"/>
+        </LinearLayout>
+    </com.google.android.material.appbar.AppBarLayout>
+    <androidx.core.widget.NestedScrollView android:layout_width="match_parent" android:layout_height="match_parent" android:fillViewport="true">
+        <LinearLayout android:minHeight="@dimen/browser_actions_context_menu_max_width" android:orientation="vertical" android:background="@android:color/white" android:padding="20dp" android:layout_width="match_parent" android:layout_height="wrap_content">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/mensagem"
+                android:layout_marginBottom="50dp"
+                android:fontFamily="@font/gotham"/>
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+</LinearLayout>

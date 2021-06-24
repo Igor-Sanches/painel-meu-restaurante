@@ -1,0 +1,49 @@
+<PreferenceScreen xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <ListPreference
+        app:isPreferenceVisible="false"
+        android:icon="@drawable/ic_action_timer"
+        android:defaultValue="dd/MM/yyyy"
+        android:entries="@array/listaHoras"
+        android:entryValues="@array/listaHorasValue"
+        android:key="FORMATO_DATA"
+        android:title="@string/formato_da_data" />
+
+    <PreferenceCategory app:title="@string/title_notifications">
+
+        <SwitchPreferenceCompat
+            android:icon="@drawable/ic_action_push"
+            android:key="NOTIFICATION"
+            android:defaultValue="true"
+            app:title="Notificação Push"
+            app:summaryOn="@string/sempre_que_seu_pedido_atualizar_voce_sera_notificado"
+            app:summaryOff="@string/sempre_que_seu_pedido_atualizar_voce_nao_sera_notificado"/>
+
+        <Preference
+            android:icon="@drawable/ic_action_notification"
+            android:key="CONFIGURATION_PUSH"
+            app:dependency="NOTIFICATION"
+            app:title="@string/configurar_notificação_push"/>
+
+    </PreferenceCategory>
+
+    <PreferenceCategory android:title="@string/preferencia_login">
+        <Preference
+            android:icon="@drawable/ic_action_email"
+            android:key="PROFILE_EMAIL"
+            android:summary="..."
+            android:title="@string/email"/>
+        <Preference
+            android:icon="@drawable/ic_action_senha"
+            android:key="PROFILE_SENHA"
+            android:summary="..."
+            android:title="@string/senha"/>
+
+    </PreferenceCategory>
+
+    <Preference
+        android:icon="@drawable/ic_action_exit"
+        android:key="PROFILE_EXIT"
+        android:title="@string/sair"
+        android:summary="@string/app_exit"/>
+</PreferenceScreen>

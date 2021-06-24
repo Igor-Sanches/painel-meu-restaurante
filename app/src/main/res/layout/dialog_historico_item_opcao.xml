@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:background="@color/transparent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.cardview.widget.CardView
+        android:layout_margin="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="20dp">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <ImageView
+                android:layout_width="130dp"
+                android:layout_height="150dp"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentStart="true"
+                android:src="@drawable/main_top"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/sobre_cliente"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Subhead"
+                    android:fontFamily="@font/gill_sans_mt"
+                    android:layout_width="wrap_content"
+                    android:layout_marginEnd="10dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginStart="10dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="30dp"/>
+
+                <Button
+                    android:background="@drawable/btn_acriligo_vermelho"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginEnd="10dp"
+                    android:textColor="@color/branco"
+                    android:layout_width="match_parent"
+                    android:layout_height="38dp"
+                    android:text="@string/deletar_do_historico"
+                    android:drawableStart="@drawable/ic_action_delete"
+                    app:drawableTint="@color/branco"
+                    android:textAllCaps="false"
+                    android:id="@+id/deletar_do_historico"/>
+
+
+
+                <Button
+                    android:id="@+id/cancel"
+                    android:layout_marginStart="10dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dp"
+                    android:text="@string/cancelar"
+                    android:textAllCaps="false"
+                    android:layout_gravity="end"
+                    android:layout_marginTop="30dp"
+                    android:layout_marginEnd="10dp"
+                    android:layout_marginBottom="20dp"
+                    android:textColor="@color/acriligo_tint_vermelho"
+                    android:background="@drawable/btn_acriligo_vermelho" />
+
+
+            </LinearLayout>
+
+        </RelativeLayout>
+    </androidx.cardview.widget.CardView>
+</RelativeLayout>

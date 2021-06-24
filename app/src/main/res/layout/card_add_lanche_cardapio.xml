@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+<LinearLayout
+    android:layout_margin="10dp"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/nomeLanche"
+        android:layout_marginBottom="10dp"
+        app:errorEnabled="false"
+        app:hintEnabled="false"
+        android:gravity="center_vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <EditText
+            android:textColor="@color/preto"
+            android:paddingRight="10dp"
+            android:paddingLeft="10dp"
+            android:paddingTop="12dp"
+            android:paddingBottom="12dp"
+            android:hint="@string/name_intro"
+            android:singleLine="true"
+            android:inputType="text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_editor_troco"/>
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/descLanche"
+        android:layout_marginBottom="10dp"
+        app:errorEnabled="false"
+        app:hintEnabled="false"
+        android:gravity="center_vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <EditText
+            android:textColor="@color/preto"
+            android:paddingRight="10dp"
+            android:paddingLeft="10dp"
+            android:paddingTop="12dp"
+            android:paddingBottom="12dp"
+            android:hint="@string/desc"
+            android:singleLine="true"
+            android:maxLength="32"
+            android:inputType="text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_editor_troco"/>
+    </com.google.android.material.textfield.TextInputLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:orientation="horizontal">
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content">
+            <Button
+                android:id="@+id/cancel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:text="@string/cancelar"
+                android:background="@drawable/btn_acriligo_vermelho"
+                android:textColor="@color/acriligo_tint_vermelho"
+                android:textAllCaps="true"/>
+        </RelativeLayout>
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content">
+            <Button
+                android:id="@+id/confirmar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:text="@string/confirmar"
+                android:background="@drawable/btn_acriligo_verde"
+                android:textColor="@color/acriligo_tint_verde"
+                android:textAllCaps="true"/>
+        </RelativeLayout>
+    </LinearLayout>
+
+    <View
+        android:layout_width="0dp"
+        android:layout_height="50dp"/>
+
+</LinearLayout>
+</androidx.cardview.widget.CardView>

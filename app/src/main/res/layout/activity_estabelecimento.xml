@@ -1,0 +1,660 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/layout"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".view.EstabelecimentoActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/colorWindowBackground">
+            <ImageView
+                android:layout_margin="5dp"
+                android:layout_centerInParent="true"
+                android:transitionName="logotipoScreen"
+                android:padding="10dp"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:src="@drawable/logo_pizzaria" />
+            <ImageButton
+                android:onClick="onBack"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:tint="@color/branco"
+                android:src="@drawable/ic_action_back"
+                android:layout_alignParentStart="true"
+                android:layout_centerVertical="true"
+                android:background="?attr/selectableItemBackgroundBorderless"/>
+        </RelativeLayout>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" >
+
+            <LinearLayout
+                android:id="@+id/lyt_progress"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true">
+                <app.birdsoft.painelmeurestaurante.widget.ViewLoadingDotsFade
+                    android:background="@color/colorWindowBackground"
+                    android:layout_width="50dp"
+                    android:layout_height="40dp"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:visibility="gone"
+                android:id="@+id/layout_wifi_error"
+                android:gravity="center"
+                android:layout_gravity="center"
+                android:layout_centerInParent="true"
+                android:layout_marginEnd="20dp"
+                android:layout_marginStart="20dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/wifi_offline"/>
+                <TextView
+                    android:textAppearance="@style/TextAppearance.AppCompat.Subhead"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAlignment="center"
+                    android:text="@string/carrinho_erro_conexao"/>
+                <Button
+                    android:onClick="onUpdateConnection"
+                    android:layout_marginTop="10dp"
+                    android:textAllCaps="false"
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dp"
+                    android:background="@drawable/bg_button_style_iniciar"
+                    android:text="@string/tente_novamente"/>
+            </LinearLayout>
+
+            <androidx.core.widget.NestedScrollView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:visibility="gone"
+                    android:id="@+id/listaLayout">
+                      <androidx.cardview.widget.CardView
+                          android:layout_width="match_parent"
+                          android:layout_height="wrap_content">
+                          <TextView
+                              android:layout_margin="10dp"
+                              android:fontFamily="@font/gill_sans_mt"
+                              android:layout_width="wrap_content"
+                              android:layout_height="wrap_content"
+                              android:text="@string/summary_config"/>
+                      </androidx.cardview.widget.CardView>
+                      <LinearLayout
+                          android:gravity="center_vertical" android:orientation="horizontal" android:background="@android:color/white" android:layout_width="match_parent" android:layout_height="?attr/actionBarSize" android:minHeight="?attr/actionBarSize">
+                          <TextView
+                              android:fontFamily="@font/gill_sans_mt"
+                              android:layout_marginStart="10dp"
+                              android:textAppearance="@style/TextAppearance.AppCompat.Subhead"
+                              android:layout_width="wrap_content"
+                              android:layout_height="wrap_content"
+                              android:text="@string/config_distancia_max"
+                              android:textAlignment="center"/>
+                          <View
+                              android:layout_width="0dp" android:layout_weight="1" android:layout_height="wrap_content"/>
+
+                          <Button
+                              android:text="@string/adicionar"
+                              android:textAllCaps="false"
+                              android:id="@+id/config_distancia_max"
+                              android:onClick="onConfigDistanciaMax"
+                              android:textColor="@color/colorBtnAzul"
+                              android:layout_width="wrap_content"
+                              android:layout_height="wrap_content"
+                              style="@style/Widget.AppCompat.Button.ButtonBar.AlertDialog"/>
+                      </LinearLayout>
+                      <LinearLayout
+                          android:gravity="center_vertical" android:orientation="horizontal" android:background="@android:color/white" android:layout_width="match_parent" android:layout_height="?attr/actionBarSize" android:minHeight="?attr/actionBarSize">
+                          <TextView
+                              android:fontFamily="@font/gill_sans_mt"
+                              android:layout_marginStart="10dp"
+                              android:textAppearance="@style/TextAppearance.AppCompat.Subhead"
+                              android:layout_width="wrap_content"
+                              android:layout_height="wrap_content"
+                              android:text="@string/config_taxas_entregas"
+                              android:textAlignment="center"/>
+                          <View
+                              android:layout_width="0dp" android:layout_weight="1" android:layout_height="wrap_content"/>
+                          <Button
+                              android:text="@string/selecionar"
+                              android:onClick="onTaxaSelector"
+                              android:textAllCaps="false"
+                              android:id="@+id/btn_taxa"
+                              android:textColor="@color/colorBtnAzul"
+                              android:layout_width="wrap_content"
+                              android:layout_height="wrap_content"
+                              style="@style/Widget.AppCompat.Button.ButtonBar.AlertDialog"/>
+                      </LinearLayout>
+                      <LinearLayout
+                          android:id="@+id/layout_taxa_fixa" android:gravity="center_vertical" android:orientation="horizontal" android:background="@color/light_grey_100" android:visibility="gone" android:layout_width="match_parent" android:layout_height="?attr/actionBarSize" android:minHeight="?attr/actionBarSize">
+                          <TextView
+                              android:fontFamily="@font/gill_sans_mt"
+                              android:layout_marginStart="10dp"
+                              android:textAppearance="@style/TextAppearance.AppCompat.Subhead"
+                              android:layout_width="wrap_content"
+                              android:layout_height="wrap_content"
+                              android:text="@string/config_taxa_fixa"
+                              android:textAlignment="center"/>
+                          <View
+                              android:layout_width="0dp" android:layout_weight="1" android:layout_height="wrap_content"/>
+                          <Button
+                              android:text="R$ 0,00"
+                              android:textAllCaps="false"
+                              android:id="@+id/config_taxas_entregas"
+                              android:onClick="onTaxaFixa"
+                              android:textColor="@color/colorBtnAzul"
+                              android:layout_width="wrap_content"
+                              android:layout_height="wrap_content"
+                              style="@style/Widget.AppCompat.Button.ButtonBar.AlertDialog"/>
+                      </LinearLayout>
+                      <LinearLayout
+                          android:id="@+id/layout_taxa_km" android:gravity="center_vertical" android:orientation="horizontal" android:background="@color/light_grey_100" android:visibility="gone" android:layout_width="match_parent" android:layout_height="?attr/actionBarSize" android:minHeight="?attr/actionBarSize">
+                          <TextView
+                              android:fontFamily="@font/gill_sans_mt"
+                              android:layout_marginStart="10dp"
+                              android:textAppearance="@style/TextAppearance.AppCompat.Subhead"
+                              android:layout_width="wrap_content"
+                              android:layout_height="wrap_content"
+                              android:text="@string/config_taxa_quilometros"
+                              android:textAlignment="center"/>
+                          <View
+                              android:layout_width="0dp" android:layout_weight="1" android:layout_height="wrap_content"/>
+                          <Button
+                              android:text="R$ 0,00/Km"
+                              android:textAllCaps="false"
+                              android:onClick="onTaxaKm"
+                              android:id="@+id/config_taxa_quilometros"
+                              android:textColor="@color/colorBtnAzul"
+                              android:layout_width="wrap_content"
+                              android:layout_height="wrap_content"
+                              style="@style/Widget.AppCompat.Button.ButtonBar.AlertDialog"/>
+                      </LinearLayout>
+                      <LinearLayout
+                          android:gravity="center_vertical" android:orientation="horizontal" android:background="@android:color/white" android:layout_width="match_parent" android:layout_height="?attr/actionBarSize" android:minHeight="?attr/actionBarSize">
+                          <TextView
+                              android:fontFamily="@font/gill_sans_mt"
+                              android:layout_marginStart="10dp"
+                              android:textAppearance="@style/TextAppearance.AppCompat.Subhead"
+                              android:layout_width="wrap_content"
+                              android:layout_height="wrap_content"
+                              android:text="@string/config_telefone"
+                              android:textAlignment="center"/>
+                          <View
+                              android:layout_width="0dp" android:layout_weight="1" android:layout_height="wrap_content"/>
+
+                          <Button
+                              android:id="@+id/btn_telefone"
+                              android:onClick="onTelefone"
+                              android:textColor="@color/colorBtnAzul"
+                              android:layout_width="wrap_content"
+                              android:layout_height="wrap_content"
+                              android:textAllCaps="false"
+                              android:text="@string/adicionar"
+                              style="@style/Widget.AppCompat.Button.ButtonBar.AlertDialog"/>
+                      </LinearLayout>
+                      <LinearLayout
+                          android:gravity="center_vertical" android:orientation="horizontal" android:background="@android:color/white" android:layout_width="match_parent" android:layout_height="?attr/actionBarSize" android:minHeight="?attr/actionBarSize">
+                          <TextView
+                              android:fontFamily="@font/gill_sans_mt"
+                              android:layout_marginStart="10dp"
+                              android:textAppearance="@style/TextAppearance.AppCompat.Subhead"
+                              android:layout_width="wrap_content"
+                              android:layout_height="wrap_content"
+                              android:text="@string/config_whasapp"
+                              android:textAlignment="center"/>
+                          <View
+                              android:layout_width="0dp" android:layout_weight="1" android:layout_height="wrap_content"/>
+
+                          <Button
+                              android:id="@+id/btn_zap"
+                              android:onClick="onWhatsApp"
+                              android:textColor="@color/colorBtnAzul"
+                              android:layout_width="wrap_content"
+                              android:layout_height="wrap_content"
+                              android:textAllCaps="false"
+                              android:text="@string/adicionar"
+                              style="@style/Widget.AppCompat.Button.ButtonBar.AlertDialog"/>
+                      </LinearLayout>
+                      <LinearLayout
+                          android:gravity="center_vertical" android:orientation="horizontal" android:background="@android:color/white" android:layout_width="match_parent" android:layout_height="?attr/actionBarSize" android:minHeight="?attr/actionBarSize">
+                          <TextView
+                              android:fontFamily="@font/gill_sans_mt"
+                              android:layout_marginStart="10dp"
+                              android:textAppearance="@style/TextAppearance.AppCompat.Subhead"
+                              android:layout_width="wrap_content"
+                              android:layout_height="wrap_content"
+                              android:text="@string/config_email"
+                              android:textAlignment="center"/>
+                          <View
+                              android:layout_width="0dp" android:layout_weight="1" android:layout_height="wrap_content"/>
+
+                          <Button
+                              android:id="@+id/btn_email"
+                              android:onClick="onEmail"
+                              android:textColor="@color/colorBtnAzul"
+                              android:layout_width="wrap_content"
+                              android:layout_height="wrap_content"
+                              android:textAllCaps="false"
+                              android:text="@string/adicionar"
+                              style="@style/Widget.AppCompat.Button.ButtonBar.AlertDialog"/>
+                      </LinearLayout>
+                      <LinearLayout
+                          android:gravity="center_vertical" android:orientation="horizontal" android:background="@android:color/white" android:layout_width="match_parent" android:layout_height="?attr/actionBarSize" android:minHeight="?attr/actionBarSize">
+                          <TextView
+                              android:fontFamily="@font/gill_sans_mt"
+                              android:layout_marginStart="10dp"
+                              android:textAppearance="@style/TextAppearance.AppCompat.Subhead"
+                              android:layout_width="wrap_content"
+                              android:layout_height="wrap_content"
+                              android:text="@string/config_endereco"
+                              android:textAlignment="center"/>
+                          <View
+                              android:layout_width="0dp" android:layout_weight="1" android:layout_height="wrap_content"/>
+
+                          <Button
+                              android:id="@+id/btn_endereco"
+                              android:onClick="onEndereco"
+                              android:textColor="@color/colorBtnAzul"
+                              android:layout_width="wrap_content"
+                              android:layout_height="wrap_content"
+                              android:textAllCaps="false"
+                              android:text="@string/adicionar"
+                              style="@style/Widget.AppCompat.Button.ButtonBar.AlertDialog"/>
+                      </LinearLayout>
+                      <LinearLayout
+                          android:gravity="center_vertical" android:orientation="horizontal" android:background="@android:color/white" android:layout_width="match_parent" android:layout_height="?attr/actionBarSize" android:minHeight="?attr/actionBarSize">
+                          <TextView
+                              android:fontFamily="@font/gill_sans_mt"
+                              android:layout_marginStart="10dp"
+                              android:textAppearance="@style/TextAppearance.AppCompat.Subhead"
+                              android:layout_width="wrap_content"
+                              android:layout_height="wrap_content"
+                              android:text="@string/geolocalizacao"
+                              android:textAlignment="center"/>
+                          <View
+                              android:layout_width="0dp" android:layout_weight="1" android:layout_height="wrap_content"/>
+
+                          <Button
+                              android:id="@+id/btn_geopoint"
+                              android:onClick="onGeolocalizacao"
+                              android:textColor="@color/colorBtnAzul"
+                              android:layout_width="wrap_content"
+                              android:layout_height="wrap_content"
+                              android:textAllCaps="false"
+                              android:text="@string/adicionar"
+                              style="@style/Widget.AppCompat.Button.ButtonBar.AlertDialog"/>
+                      </LinearLayout>
+                      <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:background="@android:color/white" android:layout_width="match_parent" android:layout_height="?attr/actionBarSize" android:minHeight="?attr/actionBarSize">
+                          <TextView
+                              android:fontFamily="@font/gill_sans_mt"
+                              android:layout_marginStart="10dp"
+                              android:textAppearance="@style/TextAppearance.AppCompat.Subhead"
+                              android:layout_width="wrap_content"
+                              android:layout_height="wrap_content"
+                              android:text="@string/config_prazo_entrega"
+                              android:textAlignment="center"/>
+                          <View
+                              android:layout_width="0dp" android:layout_weight="1" android:layout_height="wrap_content"/>
+
+                          <Button
+                              android:id="@+id/btn_prazo_default"
+                              android:onClick="onPrazo"
+                              android:textColor="@color/colorBtnAzul"
+                              android:layout_width="wrap_content"
+                              android:layout_height="wrap_content"
+                              style="@style/Widget.AppCompat.Button.ButtonBar.AlertDialog"
+                              android:textAllCaps="false"
+                              android:text="@string/selecionar"/>
+                      </LinearLayout>
+                      <LinearLayout
+                          android:id="@+id/layout_prazo" android:gravity="center_vertical" android:orientation="horizontal" android:background="@color/light_grey_100" android:visibility="gone" android:layout_width="match_parent" android:layout_height="?attr/actionBarSize" android:minHeight="?attr/actionBarSize">
+                          <TextView
+                              android:fontFamily="@font/gill_sans_mt"
+                              android:layout_marginStart="10dp"
+                              android:textAppearance="@style/TextAppearance.AppCompat.Subhead"
+                              android:layout_width="wrap_content"
+                              android:layout_height="wrap_content"
+                              android:text="@string/config_prazo_fixo_title"
+                              android:textAlignment="center"/>
+                          <View
+                              android:layout_width="0dp" android:layout_weight="1" android:layout_height="wrap_content"/>
+                          <Button
+                              android:text="@string/adicionar"
+                              android:textAllCaps="false"
+                              android:id="@+id/config_prazo_entregas"
+                              android:onClick="onPrazoFixo"
+                              android:textColor="@color/colorBtnAzul"
+                              android:layout_width="wrap_content"
+                              android:layout_height="wrap_content"
+                              style="@style/Widget.AppCompat.Button.ButtonBar.AlertDialog"/>
+                      </LinearLayout>
+                    <LinearLayout
+                        android:gravity="center_vertical" android:orientation="vertical" android:background="@android:color/white" android:layout_width="match_parent" android:layout_height="wrap_content" android:minHeight="?attr/actionBarSize">
+                        <TextView
+                            android:layout_marginTop="15dp"
+                            android:fontFamily="@font/gill_sans_mt"
+                            android:layout_marginStart="10dp"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Subhead"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/hararios"
+                            android:textAlignment="center"/>
+                        <TextView
+                            android:layout_margin="10dp"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Subhead"
+                            android:fontFamily="@font/gotham"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/config_horario_config"/>
+                        <LinearLayout
+                            android:gravity="center_vertical" android:orientation="horizontal" android:layout_width="match_parent" android:layout_height="?actionBarSize" android:minHeight="?actionBarSize">
+                            <TextView
+                                android:fontFamily="@font/gill_sans_mt"
+                                android:layout_marginStart="10dp"
+                                android:textAppearance="@style/TextAppearance.AppCompat.Subhead"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/dom"
+                                android:textAlignment="center"/>
+                            <View
+                                android:layout_width="0dp" android:layout_weight="1" android:layout_height="wrap_content"/>
+
+                            <LinearLayout
+                                android:id="@+id/layout_semana_dom"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content">
+                                <Button
+                                    android:visibility="gone"
+                                    android:id="@+id/btn_semana_dom"
+                                    android:textColor="@color/colorBtnAzul"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:textAllCaps="false"
+                                    android:text="@string/adicionar"
+                                    style="@style/Widget.AppCompat.Button.ButtonBar.AlertDialog"/>
+                                <androidx.appcompat.widget.SwitchCompat
+                                    android:id="@+id/bool_semana_dom"
+                                    android:layout_width="wrap_content"
+                                    android:layout_marginEnd="10dp"
+                                    android:layout_height="wrap_content"/>
+                            </LinearLayout>
+                        </LinearLayout>
+                        <LinearLayout
+                            android:gravity="center_vertical" android:orientation="horizontal" android:layout_width="match_parent" android:layout_height="?actionBarSize">
+                            <TextView
+                                android:fontFamily="@font/gill_sans_mt"
+                                android:layout_marginStart="10dp"
+                                android:textAppearance="@style/TextAppearance.AppCompat.Subhead"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/seg"
+                                android:textAlignment="center"/>
+                            <View
+                                android:layout_width="0dp" android:layout_weight="1" android:layout_height="wrap_content"/>
+
+                            <LinearLayout
+                                android:id="@+id/layout_semana_seg"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content">
+                                <Button
+                                    android:visibility="gone"
+                                    android:id="@+id/btn_semana_seg"
+                                    android:textColor="@color/colorBtnAzul"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:textAllCaps="false"
+                                    android:text="@string/adicionar"
+                                    style="@style/Widget.AppCompat.Button.ButtonBar.AlertDialog"/>
+                                <androidx.appcompat.widget.SwitchCompat
+                                    android:id="@+id/bool_semana_seg"
+                                    android:layout_width="wrap_content"
+                                    android:layout_marginEnd="10dp"
+                                    android:layout_height="wrap_content"/>
+                            </LinearLayout>
+                        </LinearLayout>
+                        <LinearLayout
+                            android:gravity="center_vertical" android:orientation="horizontal" android:layout_width="match_parent" android:layout_height="?actionBarSize">
+                            <TextView
+                                android:fontFamily="@font/gill_sans_mt"
+                                android:layout_marginStart="10dp"
+                                android:textAppearance="@style/TextAppearance.AppCompat.Subhead"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/ter"
+                                android:textAlignment="center"/>
+                            <View
+                                android:layout_width="0dp" android:layout_weight="1" android:layout_height="wrap_content"/>
+
+                            <LinearLayout
+                                android:id="@+id/layout_semana_ter"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content">
+                                <Button
+                                    android:visibility="gone"
+                                    android:id="@+id/btn_semana_ter"
+                                    android:textColor="@color/colorBtnAzul"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:textAllCaps="false"
+                                    android:text="@string/adicionar"
+                                    style="@style/Widget.AppCompat.Button.ButtonBar.AlertDialog"/>
+                                <androidx.appcompat.widget.SwitchCompat
+                                    android:id="@+id/bool_semana_ter"
+                                    android:layout_width="wrap_content"
+                                    android:layout_marginEnd="10dp"
+                                    android:layout_height="wrap_content"/>
+                            </LinearLayout>
+                        </LinearLayout>
+                        <LinearLayout
+                            android:gravity="center_vertical" android:orientation="horizontal" android:layout_width="match_parent" android:layout_height="?actionBarSize">
+                            <TextView
+                                android:fontFamily="@font/gill_sans_mt"
+                                android:layout_marginStart="10dp"
+                                android:textAppearance="@style/TextAppearance.AppCompat.Subhead"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/qua"
+                                android:textAlignment="center"/>
+                            <View
+                                android:layout_width="0dp" android:layout_weight="1" android:layout_height="wrap_content"/>
+
+                            <LinearLayout
+                                android:id="@+id/layout_semana_qua"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content">
+                                <Button
+                                    android:visibility="gone"
+                                    android:id="@+id/btn_semana_qua"
+                                    android:textColor="@color/colorBtnAzul"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:textAllCaps="false"
+                                    android:text="@string/adicionar"
+                                    style="@style/Widget.AppCompat.Button.ButtonBar.AlertDialog"/>
+                                <androidx.appcompat.widget.SwitchCompat
+                                    android:id="@+id/bool_semana_qua"
+                                    android:layout_width="wrap_content"
+                                    android:layout_marginEnd="10dp"
+                                    android:layout_height="wrap_content"/>
+                            </LinearLayout>
+                        </LinearLayout>
+                        <LinearLayout
+                            android:gravity="center_vertical" android:orientation="horizontal" android:layout_width="match_parent" android:layout_height="?actionBarSize">
+                            <TextView
+                                android:fontFamily="@font/gill_sans_mt"
+                                android:layout_marginStart="10dp"
+                                android:textAppearance="@style/TextAppearance.AppCompat.Subhead"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/qui"
+                                android:textAlignment="center"/>
+                            <View
+                                android:layout_width="0dp" android:layout_weight="1" android:layout_height="wrap_content"/>
+
+                            <LinearLayout
+                                android:id="@+id/layout_semana_qui"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content">
+                                <Button
+                                    android:visibility="gone"
+                                    android:id="@+id/btn_semana_qui"
+                                    android:textColor="@color/colorBtnAzul"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:textAllCaps="false"
+                                    android:text="@string/adicionar"
+                                    style="@style/Widget.AppCompat.Button.ButtonBar.AlertDialog"/>
+                                <androidx.appcompat.widget.SwitchCompat
+                                    android:id="@+id/bool_semana_qui"
+                                    android:layout_width="wrap_content"
+                                    android:layout_marginEnd="10dp"
+                                    android:layout_height="wrap_content"/>
+                            </LinearLayout>
+                        </LinearLayout>
+                        <LinearLayout
+                            android:gravity="center_vertical" android:orientation="horizontal" android:layout_width="match_parent" android:layout_height="?actionBarSize">
+                            <TextView
+                                android:fontFamily="@font/gill_sans_mt"
+                                android:layout_marginStart="10dp"
+                                android:textAppearance="@style/TextAppearance.AppCompat.Subhead"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/sex"
+                                android:textAlignment="center"/>
+                            <View
+                                android:layout_width="0dp" android:layout_weight="1" android:layout_height="wrap_content"/>
+
+                            <LinearLayout
+                                android:id="@+id/layout_semana_sex"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content">
+                                <Button
+                                    android:visibility="gone"
+                                    android:id="@+id/btn_semana_sex"
+                                    android:textColor="@color/colorBtnAzul"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:textAllCaps="false"
+                                    android:text="@string/adicionar"
+                                    style="@style/Widget.AppCompat.Button.ButtonBar.AlertDialog"/>
+                                <androidx.appcompat.widget.SwitchCompat
+                                    android:id="@+id/bool_semana_sex"
+                                    android:layout_width="wrap_content"
+                                    android:layout_marginEnd="10dp"
+                                    android:layout_height="wrap_content"/>
+                            </LinearLayout>
+                        </LinearLayout>
+                        <LinearLayout
+                            android:gravity="center_vertical" android:orientation="horizontal" android:layout_width="match_parent" android:layout_height="?actionBarSize">
+                            <TextView
+                                android:fontFamily="@font/gill_sans_mt"
+                                android:layout_marginStart="10dp"
+                                android:textAppearance="@style/TextAppearance.AppCompat.Subhead"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/sab"
+                                android:textAlignment="center"/>
+                            <View
+                                android:layout_width="0dp" android:layout_weight="1" android:layout_height="wrap_content"/>
+
+                            <LinearLayout
+                                android:id="@+id/layout_semana_sab"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content">
+                                <Button
+                                    android:visibility="gone"
+                                    android:id="@+id/btn_semana_sab"
+                                    android:textColor="@color/colorBtnAzul"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:textAllCaps="false"
+                                    android:text="@string/adicionar"
+                                    style="@style/Widget.AppCompat.Button.ButtonBar.AlertDialog"/>
+                                <androidx.appcompat.widget.SwitchCompat
+                                    android:id="@+id/bool_semana_sab"
+                                    android:layout_width="wrap_content"
+                                    android:layout_marginEnd="10dp"
+                                    android:layout_height="wrap_content"/>
+                            </LinearLayout>
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                    <Button
+                        android:onClick="onConfig"
+                        android:text="@string/confirmar"
+                        android:id="@+id/button_config"
+                        android:layout_marginTop="20dp"
+                        android:visibility="gone"
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
+                        android:background="@drawable/btn_acriligo_laranja_quadrado"
+                        android:textColor="@color/acriligo_tint_laranja"/>
+
+                </LinearLayout>
+            </androidx.core.widget.NestedScrollView>
+
+            <LinearLayout
+                android:layout_centerInParent="true"
+                android:id="@+id/vazio"
+                android:visibility="gone"
+                android:layout_width="match_parent"
+                android:layout_marginEnd="30dp"
+                android:layout_marginStart="30dp"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:gravity="center"
+                tools:ignore="UseCompoundDrawables">
+                <ImageView
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:src="@drawable/lista_vazia"/>
+                <TextView
+                    android:textAppearance="@style/TextAppearance.AppCompat.Subhead"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:textAlignment="center"
+                    android:fontFamily="@font/gill_sans_mt"
+                    android:text="@string/sem_dados"/>
+                <Button
+                    android:onClick="onUpdateConnection"
+                    android:layout_marginTop="10dp"
+                    android:textAllCaps="false"
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dp"
+                    android:background="@drawable/bg_button_style_iniciar"
+                    android:text="@string/tente_novamente"/>
+            </LinearLayout>
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+    <FrameLayout
+        android:id="@+id/bottom_sheet"
+        app:layout_behavior="@string/bottom_sheet_behavior"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

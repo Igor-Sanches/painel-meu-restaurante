@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/layout"
+    android:background="@color/colorWindowBackgroundDark"
+    tools:context=".betaScreenModo.AdicionarClienteTesteActivity">
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:orientation="vertical"
+            android:layout_height="match_parent">
+            <ImageView
+                android:layout_gravity="center"
+                android:layout_width="220dp"
+                android:layout_height="290dp"
+                android:src="@drawable/agente_mr_delivery"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/mr_delivery_desc"
+                android:textColor="@color/light_grey_100"
+                android:alpha="0.6"
+                android:textAppearance="@style/TextAppearance.AppCompat.Subhead"
+                android:fontFamily="@font/gill_sans_mt"
+                android:layout_gravity="center"
+                android:layout_margin="20dp"/>
+
+            <TextView
+                android:onClick="onContrato"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/contratar_servico"
+                android:background="@drawable/bg_hyperlink"
+                android:textColor="@color/light_grey_100"
+                android:layout_marginStart="20dp"/>
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_marginStart="30dp"
+                android:layout_marginEnd="30dp"
+                android:layout_marginTop="30dp"
+                android:paddingRight="20dp"
+                android:paddingLeft="20dp"
+                android:background="@drawable/bg_editor_troco">
+                <TextView
+                    android:focusable="true"
+                    android:focusableInTouchMode="true"
+                    android:scrollHorizontally="true"
+                    android:ellipsize="marquee"
+                    android:marqueeRepeatLimit="marquee_forever"
+                    android:id="@+id/token_view"
+                    android:singleLine="true"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:textColor="@color/colorAccent"
+                    android:textAlignment="center"/>
+            </FrameLayout>
+
+            <TextView
+                android:onClick="onCopiaCodigo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/copia_uid"
+                android:layout_gravity="center"
+                android:layout_marginTop="10dp"
+                android:alpha="0.7"
+                android:background="@drawable/bg_hyperlink"
+                android:textColor="@color/light_grey_100"/>
+
+            <FrameLayout
+                android:onClick="onGerarCodigo"
+                android:layout_marginTop="30dp"
+                android:layout_marginBottom="40dp"
+                android:clickable="true"
+                android:focusable="true"
+                android:foreground="?attr/selectableItemBackground"
+                android:background="@drawable/bg_button_style_iniciar"
+                android:layout_gravity="center_horizontal"
+                android:layout_width="wrap_content"
+                android:paddingRight="20dp"
+                android:paddingLeft="20dp"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:textColor="@color/colorStroke"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/gerar_qr_code"/>
+            </FrameLayout>
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
+    <ImageButton
+        android:onClick="onBack"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:tint="@color/branco"
+        android:src="@drawable/ic_action_back"
+        android:layout_alignParentStart="true"
+        android:layout_centerVertical="true"
+        android:background="?attr/selectableItemBackgroundBorderless"/>
+
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

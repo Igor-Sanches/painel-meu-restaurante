@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_margin="10dp"
+        android:textAppearance="@style/TextAppearance.AppCompat.Subhead"
+        android:fontFamily="@font/gotham"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/config_km"/>
+
+    <View
+        android:layout_width="0dp"
+        android:layout_height="10dp"/>
+
+    <TextView
+        android:id="@+id/km_progress"
+        android:layout_gravity="center_horizontal"
+        android:fontFamily="@font/gill_sans_mt"
+        android:textAppearance="@style/TextAppearance.AppCompat.Title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="1 Km"/>
+      <SeekBar
+          android:id="@+id/progress_km"
+          android:layout_margin="10dp"
+          android:max="100"
+          android:min="1"
+          android:progress="2"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          tools:targetApi="o" />
+
+    <LinearLayout
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:textAppearance="@style/TextAppearance.AppCompat.Caption"
+            android:fontFamily="@font/gotham"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Min 1 Km"/>
+        <View
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_weight="1"/>
+        <TextView
+            android:textAppearance="@style/TextAppearance.AppCompat.Caption"
+            android:fontFamily="@font/gotham"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Max 100 Km"/>
+    </LinearLayout>
+
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:layout_marginBottom="10dp"
+        android:orientation="horizontal">
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content">
+            <Button
+                android:id="@+id/cancel"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:layout_centerInParent="true"
+                android:text="@string/cancelar"
+                android:background="@drawable/btn_acriligo_vermelho"
+                android:textColor="@color/acriligo_tint_vermelho"
+                android:textAllCaps="false"/>
+        </RelativeLayout>
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content">
+            <Button
+                android:id="@+id/confirmar"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:layout_centerInParent="true"
+                android:text="@string/confirmar"
+                android:background="@drawable/btn_acriligo_verde"
+                android:textColor="@color/acriligo_tint_verde"
+                android:textAllCaps="false"/>
+        </RelativeLayout>
+    </LinearLayout>
+
+
+</LinearLayout>

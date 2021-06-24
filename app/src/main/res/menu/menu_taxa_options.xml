@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/menuSemTaxa" android:title="@string/config_sem_taxa"/>
+    <item android:id="@+id/menuTaxaFixa" android:title="@string/config_taxa_fixa"/>
+    <item android:id="@+id/menuTaxaKm" android:title="@string/config_texa_km"/>
+</menu>

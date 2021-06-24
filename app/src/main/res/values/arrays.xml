@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="listaHoras">
+        <item>01/01/2020</item>
+        <item>01 jan 2020</item>
+        <item>01 jan, 2020</item>
+        <item>dom, 01 jan 2020</item>
+        <item>domingo, 01 jar 2020</item>
+        <item>01 janeiro 2020</item>
+        <item>01 janeiro, 2020</item>
+        <item>dom, 01 janeiro 2020</item>
+        <item>domingo, 01 janeiro 2020</item>
+    </string-array>
+    <string-array name="listaHorasValue">
+        <item>dd/MM/yyyy</item>
+        <item>dd MMM yyyy</item>
+        <item>dd MMM, yyyy</item>
+        <item>EEE, dd MMM yyyy</item>
+        <item>EEEE, dd MMM yyyy</item>
+        <item>dd MMMM yyyy</item>
+        <item>dd MMMM, yyyy</item>
+        <item>EEE, dd MMMM yyyy</item>
+        <item>EEEE, dd MMMM yyyy</item>
+    </string-array>
+
+</resources>

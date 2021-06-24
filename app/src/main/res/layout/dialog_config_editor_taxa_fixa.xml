@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <TextView
+        android:layout_margin="10dp"
+        android:textAppearance="@style/TextAppearance.AppCompat.Subhead"
+        android:fontFamily="@font/gotham"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/config_taxa_fixa"/>
+
+    <View
+        android:layout_width="0dp"
+        android:layout_height="10dp"/>
+
+    <TextView
+        android:id="@+id/km_valor"
+        android:layout_gravity="center_horizontal"
+        android:fontFamily="@font/gill_sans_mt"
+        android:textAppearance="@style/TextAppearance.AppCompat.Title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="R$ 0,00"/>
+
+    <Button
+        android:id="@+id/btn_editar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/editar"
+        style="@style/Widget.AppCompat.Button.ButtonBar.AlertDialog"
+        android:textColor="@color/colorBtnAzul"
+        android:layout_gravity="center_horizontal"/>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:orientation="horizontal">
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content">
+            <Button
+                android:id="@+id/cancel"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:layout_centerInParent="true"
+                android:text="@string/cancelar"
+                android:background="@drawable/btn_acriligo_vermelho"
+                android:textColor="@color/acriligo_tint_vermelho"
+                android:textAllCaps="false"/>
+        </RelativeLayout>
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content">
+            <Button
+                android:id="@+id/confirmar"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:layout_centerInParent="true"
+                android:text="@string/confirmar"
+                android:background="@drawable/btn_acriligo_verde"
+                android:textColor="@color/acriligo_tint_verde"
+                android:textAllCaps="false"/>
+        </RelativeLayout>
+    </LinearLayout>
+
+
+</LinearLayout>

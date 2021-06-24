@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="app.birdsoft.painelmeurestaurante">
+
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+
+    <application
+        android:name=".App"
+        android:allowBackup="true"
+        android:fullBackupContent="@xml/backup_descriptor"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity
+            android:screenOrientation="portrait"
+            android:name=".betaScreenModo.AdicionarClienteTesteActivity"
+            android:theme="@style/AppTheme.HomeIniciarBeta"/>
+        <activity
+            android:screenOrientation="portrait"
+            android:name=".login.SplashActivity"
+            android:theme="@style/AppTheme.HomeIniciar">
+        <intent-filter>
+            <action android:name="android.intent.action.MAIN" />
+
+            <category android:name="android.intent.category.LAUNCHER" />
+        </intent-filter>
+    </activity>
+        <activity
+            android:name=".login.WelcomeActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.HomeIniciar" />
+        <activity
+            android:screenOrientation="portrait"
+            android:name=".login.LoginActivity"
+            android:theme="@style/AppTheme.HomeIniciar" />
+        <activity
+            android:name=".login.BaseViewLoginActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.HomeIniciar" />
+        <activity
+            android:screenOrientation="portrait"
+            android:name=".login.BaseViewActivity"
+            android:theme="@style/AppTheme.HomeIniciar" />
+        <activity
+            android:screenOrientation="portrait"
+            android:name=".view.AppSettingsActivity"
+            android:theme="@style/AppTheme.HomeIniciar" />
+        <activity
+            android:name=".view.ItensPedidosViewActivity"
+            android:theme="@style/AppTheme.HomeIniciar" />
+        <activity
+            android:name=".view.VisualizadorDePedidoActivity"
+            android:theme="@style/AppTheme.HomeIniciar" />
+        <activity
+            android:name=".view.PainelPedidosActivity"
+            android:theme="@style/AppTheme.HomeIniciar" />
+        <activity
+            android:name=".view.AtualizarCardapioItensActivity"
+            android:theme="@style/AppTheme.HomeIniciar" />
+        <activity
+            android:name=".view.AtualizarCardapioAdicionaisActivity"
+            android:theme="@style/AppTheme.HomeIniciar" />
+        <activity
+            android:name=".view.AdicionarItensAdicionaisActivity"
+            android:theme="@style/AppTheme.HomeIniciar" />
+        <activity
+            android:name=".view.AtualizarCardapioUnicoActivity"
+            android:theme="@style/AppTheme.HomeIniciar" />
+        <activity
+            android:name=".view.AtualizarCardapioActivity"
+            android:theme="@style/AppTheme.HomeIniciar" />
+        <activity
+            android:name=".view.CardapioVisualizadorActivity"
+            android:theme="@style/AppTheme.HomeIniciar" />
+        <activity
+            android:name=".view.AdicionarCardapioActivity"
+            android:theme="@style/AppTheme.HomeIniciar" />
+        <activity
+            android:name=".view.CardapioActivity"
+            android:theme="@style/AppTheme.HomeIniciar" />
+        <activity
+            android:name=".view.EstabelecimentoActivity"
+            android:theme="@style/AppTheme.HomeIniciar" />
+        <activity android:name="com.theartofdev.edmodo.cropper.CropImageActivity" />
+        <activity
+            android:name=".view.AnunciosActivity"
+            android:theme="@style/AppTheme.HomeIniciar" />
+        <activity
+            android:name=".view.AdicionarCupomActivity"
+            android:theme="@style/AppTheme.HomeIniciar" />
+        <activity
+            android:name=".view.CuponsActivity"
+            android:theme="@style/AppTheme.HomeIniciar" />
+        <activity
+            android:name=".view.HistoricosActivity"
+            android:theme="@style/AppTheme.HomeIniciar" />
+        <activity
+            android:screenOrientation="portrait"
+            android:name=".MainActivity"
+            android:theme="@style/AppTheme.HomeIniciar" />
+
+        <service
+            android:name=".service.MyFireBaseMessagingService"
+            android:enabled="true"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+            </intent-filter>
+        </service>
+    </application>
+
+</manifest>

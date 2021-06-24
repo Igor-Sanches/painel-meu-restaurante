@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/layout"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".view.VisualizadorDePedidoActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/colorWindowBackground">
+            <ImageView
+                android:layout_margin="5dp"
+                android:layout_centerInParent="true"
+                android:transitionName="logotipoScreen"
+                android:padding="10dp"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:src="@drawable/logo_pizzaria" />
+            <ImageButton
+                android:onClick="onBack"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:tint="@color/branco"
+                android:src="@drawable/ic_action_back"
+                android:layout_alignParentStart="true"
+                android:layout_centerVertical="true"
+                android:background="?attr/selectableItemBackgroundBorderless"/>
+        </RelativeLayout>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:id="@+id/listaLayout">
+                <LinearLayout
+                    android:visibility="gone"
+                    android:id="@+id/observacao_layout"
+                    android:layout_margin="5dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:background="@drawable/bg_line_retancula">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_marginTop="2dp"
+                        android:layout_height="wrap_content"
+                        android:text="@string/mensagem_observacao"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Title"
+                        android:layout_gravity="center_horizontal"/>
+
+                    <androidx.core.widget.NestedScrollView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+                    <LinearLayout
+                    android:orientation="vertical"
+                        android:padding="10dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:id="@+id/mensagem"
+                            android:fontFamily="@font/gotham"/>
+                    </LinearLayout>
+                    </androidx.core.widget.NestedScrollView>
+
+                </LinearLayout>
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/mRecyclerView"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"/>
+                <Button
+                    android:id="@+id/btn_avancar_pedido"
+                    android:onClick="onAvancarPedido"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:text="@string/avanca_pedido"
+                    android:background="@drawable/btn_acriligo_laranja_quadrado"
+                    android:textColor="@color/acriligo_tint_laranja"/>
+            </LinearLayout>
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+    <FrameLayout
+        android:id="@+id/bottom_sheet"
+        app:layout_behavior="@string/bottom_sheet_behavior"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
